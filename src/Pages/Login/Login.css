@@ -1,0 +1,100 @@
+/**Typeo CSS Start**/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  box-sizing: border-box;
+  margin: 0px;
+  display: flex; /* Added */
+  justify-content: center; /* Added */
+  align-items: center; /* Added */
+  height: 100vh; /* Added */
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0px 15px;
+  margin: auto;
+}
+
+/**Typeo CSS End**/
+.login-register-form {
+  max-width: 460px;
+  width: 100%;
+  margin: 40px auto;
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fff;
+  box-shadow: #cdcdcd 0px 0px 20px;
+}
+
+.login-register-form h4 {
+  margin: 0px;
+  font-size: 26px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form-group {
+  width: 100%;
+  margin: 10px 0px;
+  display: inline-block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  line-height: normal;
+  border: #ccc 1px solid;
+  font-size: 16px;
+  font-family: 'Poppins';
+  transition: 0.5s all;
+}
+
+.form-control:focus {
+  border-color: #ff6200;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #000;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #000;
+}
+
+.form-control::placeholder {
+  color: #000;
+}
+
+.login-register-form a {
+  text-decoration: underline;
+  color: #000;
+  font-size: 14px;
+}
+
+.login-register-form a:hover {
+  color: #ff6200;
+  text-decoration: none;
+}
+
+.cmn-btn {
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #ff6200;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s all;
+  width: 100%;
+}
