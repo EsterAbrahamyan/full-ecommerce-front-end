@@ -24,14 +24,14 @@ const initialState: UsersState= {
 }
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async()=>{
-    const res = await fetch('http://localhost:5001/users')
+    const res = await fetch('http://localhost:6005/users')
     const json = await res.json()
     return json as Users[]
 })
 
 export const login = createAsyncThunk('users/login', async (user: Users) => {
     try {
-      const res = await fetch('http://localhost:5001/users/login', {
+      const res = await fetch('http://localhost:6005/users/login', {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
@@ -49,7 +49,7 @@ export const login = createAsyncThunk('users/login', async (user: Users) => {
 
 export const register = createAsyncThunk('users/register', async(user: User)=>{
     try{
-        const res = await fetch("http://localhost:5001/users/register", {
+        const res = await fetch("http://localhost:6005/users/register", {
             method: "POST",
             body: JSON.stringify(user),
             headers:{

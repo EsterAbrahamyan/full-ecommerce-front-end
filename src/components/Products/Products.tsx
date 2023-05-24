@@ -1,7 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '../../app/store';
+import { fetchProducts, selectAllProducts } from '../../feachers/productSlice';
+// import "./Products.css"
 
-export default function Products() {
-  return (
-    <div>Products</div>
-  )
+
+interface ProductPage {
+    id:number;
+    name: string;
+    price: number;
+    description: string;
+    image: string;
+    undercategory_id: number
 }
+
+const ProductPage: React.FC = () => {
+  const products = useSelector(selectAllProducts);
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+  console.log(products)
+
+  return (
+    <div>
+      {products?.map((product) => (
+        <div key={product.id}>
+          <div>{product.name}</div>
+          <div>{product.price}</div>
+          <div>{product.description}</div>
+          <div>{product.undercategory_id}</div>
+
+          <img
+            //   src={`http://localhost:6005/${product?.image}`}
+              src={`${product?.image}`}
+              alt="Sample photo"
+            />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
+
+export default ProductPage;

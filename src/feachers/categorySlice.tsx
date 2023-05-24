@@ -17,7 +17,7 @@ const initialState: CategoryState= {
 }
 
 export const fetchCategory = createAsyncThunk('category/fetchCategory', async()=>{
-    const res = await fetch('http://localhost:5001/category')
+    const res = await fetch('http://localhost:6005/category')
     const json = await res.json()
     return json as Category[]
 })

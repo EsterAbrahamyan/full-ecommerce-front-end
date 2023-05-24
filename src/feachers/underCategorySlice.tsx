@@ -18,7 +18,7 @@ const initialState: underCategoryState= {
 }
 
 export const fetchunderCategory = createAsyncThunk('undercategory/fetchunderCategory', async()=>{
-    const res = await fetch('http://localhost:5001/undercategory')
+    const res = await fetch('http://localhost:6005/undercategory')
     const json = await res.json()
     return json as underCategory[]
 })
