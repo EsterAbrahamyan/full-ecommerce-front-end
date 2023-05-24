@@ -1,18 +1,21 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
+import { RootState } from "../app/store"
+
 
 interface underCategory {
+      id:number;
       name: string;
       category_id: number
 }
 
 interface underCategoryState {
-    status: string;
+    loading: boolean;
     underCategory: underCategory[];
     error: string | null
 }
 
 const initialState: underCategoryState= {
-    status:'test',
+    loading: false,
     underCategory:[],
     error: null
 }
@@ -30,12 +33,19 @@ const underCategorySlice = createSlice({
     reducers: {},
     extraReducers:(builder)=>{
         builder
-        .addCase(fetchunderCategory.fulfilled, (state, action)=>{
-            state.status = "success";
-            state.underCategory = action.payload
+        .addCase(fetchunderCategory.pending, (state) => {
+            state.loading = true
         })
+        .addCase(fetchunderCategory.fulfilled, (state, action:PayloadAction <underCategory[]>) => {
+            state.loading = false;
+            state.underCategory = action.payload;
+          })
+          .addCase(fetchunderCategory.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message ?? 'Failed to fetch underCategory';
+          });
     }
 })
 
 export default underCategorySlice.reducer
-
+export const selectAllunderCategories = (state: RootState): underCategory[] => state.undercategory.underCategory;

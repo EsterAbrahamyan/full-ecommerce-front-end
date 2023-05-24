@@ -1,17 +1,20 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
+import { RootState } from "../app/store"
+
 
 interface Category {
+      id:number;
       name: string;
 }
 
 interface CategoryState {
-    status: string;
+    loading: boolean;
     category: Category[];
     error: string | null
 }
 
 const initialState: CategoryState= {
-    status:'test',
+    loading: false,
     category:[],
     error: null
 }
@@ -29,12 +32,21 @@ const categorySlice = createSlice({
     reducers: {},
     extraReducers:(builder)=>{
         builder
-        .addCase(fetchCategory.fulfilled, (state, action)=>{
-            state.status = "success";
-            state.category = action.payload
-        })
+        .addCase(fetchCategory.pending, (state) => {
+            state.loading = true;
+         })
+        .addCase(fetchCategory.fulfilled, (state, action:PayloadAction <Category[]>) => {
+            state.loading = false;
+            state.category = action.payload;
+          })
+          .addCase(fetchCategory.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message ?? 'Failed to fetch Category';
+          });
     }
 })
 
 export default categorySlice.reducer
+export const selectAllCategories = (state: RootState): Category[] => state.category.category;
+
 
