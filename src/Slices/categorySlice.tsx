@@ -25,6 +25,13 @@ export const fetchCategory = createAsyncThunk('category/fetchCategory', async()=
     return json as Category[]
 })
 
+export const fetchCategoryId = createAsyncThunk("category/fetchCategoryId", async (id: number) => {
+    // Fetch category data by ID from the server
+    const res = await fetch(`http://localhost:6005/category/${id}`);
+    const json = await res.json();
+    return json as Category;
+  });
+
 
 const categorySlice = createSlice({
     name: "category",
@@ -35,6 +42,7 @@ const categorySlice = createSlice({
         .addCase(fetchCategory.pending, (state) => {
             state.loading = true;
          })
+        
         .addCase(fetchCategory.fulfilled, (state, action:PayloadAction <Category[]>) => {
             state.loading = false;
             state.category = action.payload;
@@ -42,11 +50,25 @@ const categorySlice = createSlice({
           .addCase(fetchCategory.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message ?? 'Failed to fetch Category';
-          });
+          })
+          
+          .addCase(fetchCategoryId.pending, (state) => {
+            state.loading = true;
+          })
+          .addCase(fetchCategoryId.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message ?? "Failed to fetch category";
+          })
+          .addCase(fetchCategoryId.fulfilled, (state, action:PayloadAction <Category>) => {
+            state.loading = false;
+            state.category=[action.payload];
+          })
+
     }
 })
 
 export default categorySlice.reducer
 export const selectAllCategories = (state: RootState): Category[] => state.category.category;
-
+// export const selectCategoryById = (state: RootState, id: string): Category | undefined =>
+//   state.category.category.find((category) => category.id === parseInt(id));
 

@@ -25,6 +25,11 @@ export const fetchunderCategory = createAsyncThunk('undercategory/fetchunderCate
     const json = await res.json()
     return json as underCategory[]
 })
+export const fetchunderCategoryId = createAsyncThunk('undercategory/fetchunderCategoryId', async(id:number)=>{
+    const res = await fetch(`http://localhost:6005/undercategory/${id}`)
+    const json = await res.json()
+    return json as underCategory[]
+})
 
 
 const underCategorySlice = createSlice({
@@ -43,7 +48,11 @@ const underCategorySlice = createSlice({
           .addCase(fetchunderCategory.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message ?? 'Failed to fetch underCategory';
-          });
+          })
+          .addCase(fetchunderCategoryId.fulfilled, (state, action:PayloadAction <underCategory[]>) => {
+            state.loading = false;
+            state.underCategory = action.payload;
+          })
     }
 })
 

@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit"
-import usersReducer from "../feachers/usersSlice"
-import productReducer from "../feachers/productSlice"
-import categoryReducer from "../feachers/categorySlice"
-import undercategoryReducer from "../feachers/underCategorySlice"
+import usersReducer from "../Slices/usersSlice"
+import productReducer from "../Slices/productSlice"
+import categoryReducer from "../Slices/categorySlice"
+import undercategoryReducer from "../Slices/underCategorySlice"
 
 export const store = configureStore({
     reducer:{

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from '../../feachers/usersSlice';
+import { register } from '../../Slices/usersSlice';
 import './Register.css'
 import { AppDispatch } from '../../app/store';
 

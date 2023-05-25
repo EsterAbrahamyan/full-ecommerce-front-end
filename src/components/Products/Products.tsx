@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../app/store';
-import { fetchProducts, selectAllProducts } from '../../feachers/productSlice';
+import { fetchProducts, selectAllProducts } from '../../Slices/productSlice';
 // import "./Products.css"
+import {Link} from 'react-router-dom'
 
 
 interface ProductPage {
@@ -26,18 +27,18 @@ const ProductPage: React.FC = () => {
   return (
     <div>
       {products?.map((product) => (
-        <div key={product.id}>
+        <Link to= {`/product/${product.id}`}  key={product.id}>
           <div>{product.name}</div>
           <div>{product.price}</div>
           <div>{product.description}</div>
           <div>{product.undercategory_id}</div>
 
           <img
-            //   src={`http://localhost:6005/${product?.image}`}
+              // src={`http://localhost:6005/${product?.image}`}
               src={`${product?.image}`}
               alt="Sample photo"
             />
-        </div>
+        </Link>
       ))}
     </div>
   );

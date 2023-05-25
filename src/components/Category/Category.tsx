@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../app/store';
-import { fetchCategory, selectAllCategories } from '../../feachers/categorySlice';
+import { fetchCategory, selectAllCategories } from '../../Slices/categorySlice';
+import {Link} from 'react-router-dom'
 
 
 
@@ -22,12 +23,12 @@ const CategoryPage: React.FC = () => {
       return (
         <div>
           {categories?.map((category) => (
-            <div key={category.id}>
+            <Link to={`/category/${category.id}`} key={category.id}>
                 <div>{category.name}</div>
               
     
               
-            </div>
+            </Link>
           ))}
         </div>
       );

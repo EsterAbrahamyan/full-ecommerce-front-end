@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../feachers/usersSlice';
+import { login } from '../../Slices/usersSlice';
 import './Login.css'
 import { AppDispatch } from '../../app/store';
 
