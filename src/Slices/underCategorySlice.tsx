@@ -5,7 +5,18 @@ import { RootState } from "../app/store"
 interface underCategory {
       id:number;
       name: string;
-      category_id: number
+      category_id: number;
+      Products: products [];
+
+}
+
+interface products{
+    id:number;
+    name: string;
+    price: number;
+    description: string;
+    image: string;
+    undercategory_id: number
 }
 
 interface underCategoryState {
@@ -16,7 +27,7 @@ interface underCategoryState {
 
 const initialState: underCategoryState= {
     loading: false,
-    underCategory:[],
+    underCategory: [],
     error: null
 }
 

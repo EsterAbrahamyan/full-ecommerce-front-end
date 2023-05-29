@@ -6,12 +6,13 @@ import {Link} from 'react-router-dom'
 
 
 
-interface CategoryPage {
+interface Category {
     id:number;
-    name: string;
+    name: string
+    // underCategory: string;
 }
 
-const CategoryPage: React.FC = () => {
+const Category: React.FC = () => {
     const categories = useSelector(selectAllCategories);
     const dispatch: AppDispatch = useDispatch();
 
@@ -36,4 +37,4 @@ const CategoryPage: React.FC = () => {
     
     
     
-    export default CategoryPage;
+    export default Category;

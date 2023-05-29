@@ -5,6 +5,22 @@ import { RootState } from "../app/store"
 interface Category {
       id:number;
       name: string;
+      underCategories: underCategories [];
+}
+
+interface underCategories{
+  id: number;
+  name: string;
+  category_id: number;
+  Product: product []
+}
+
+interface product{
+  id:number;
+  name: string;
+  price: number;
+  image: string;
+  underCategory_id: number
 }
 
 interface CategoryState {
@@ -22,14 +38,14 @@ const initialState: CategoryState= {
 export const fetchCategory = createAsyncThunk('category/fetchCategory', async()=>{
     const res = await fetch('http://localhost:6005/category')
     const json = await res.json()
-    return json as Category[]
+    return json 
 })
 
 export const fetchCategoryId = createAsyncThunk("category/fetchCategoryId", async (id: number) => {
     // Fetch category data by ID from the server
     const res = await fetch(`http://localhost:6005/category/${id}`);
     const json = await res.json();
-    return json as Category;
+    return json 
   });
 
 
