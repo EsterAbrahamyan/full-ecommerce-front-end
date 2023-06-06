@@ -5,6 +5,7 @@ import { RootState } from "../app/store"
 interface Category {
       id:number;
       name: string;
+      image: string;
       underCategories: underCategories [];
 }
 

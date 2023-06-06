@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../Slices/usersSlice';
 import './Login.css'
 import { AppDispatch } from '../../app/store';
+import { Link } from 'react-router-dom';
+
 
 interface User {
   email: string;
@@ -17,9 +19,15 @@ const Login: React.FC = () => {
 
   const dispatch: AppDispatch = useDispatch();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(login(user));
+    const loginResult = await dispatch(login(user));
+
+    if (loginResult.payload) {
+      window.location.href = '/'; // Navigate to the home page after successful login
+    } else {
+      window.location.href = '/register'; // Navigate to the register page if login fails
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +71,7 @@ const Login: React.FC = () => {
             </button>
           </div>
           <div className="form-group">
-            <a href="#">Create account</a>
+            <Link to="/register">Create account</Link>
           </div>
         </form>
         {/* Render the other forms for create account and reset password */}

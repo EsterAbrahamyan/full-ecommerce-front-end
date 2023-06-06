@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+.gallery2-scn,
+.gallery2-scn * {
+  --page-width: 1330px;
+  --base-fm: 'Rubik', sans-serif;
+  --title-size: 40px;
+  --base-size: 18px;
+  --white-clr: #ffffff;
+  --theme-clr: #db8cc7;
+  --bg-clr: #F9F6F2;
+}
+
+.page-width {
+  max-width: var(--page-width);
+  padding: 0 15px;
+  margin: auto;
+  width: 100%;
+}
+
+.gallery2-scn {
+  /* background: -moz-linear-gradient(53deg, rgba(0, 255, 235, 1) 0%, rgba(76, 175, 80, 1) 100%);
+  background: -webkit-linear-gradient(53deg, rgba(0, 255, 235, 1) 0%, rgba(76, 175, 80, 1) 100%);
+  background: -o-linear-gradient(53deg, rgba(0, 255, 235, 1) 0%, rgba(76, 175, 80, 1) 100%); */
+  /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4CAF50', endColorstr='#00FFEB', GradientType=0); */
+  /* background: -ms-linear-gradient(53deg, rgba(0, 255, 235, 1) 0%, rgba(76, 175, 80, 1) 100%); */
+  background: rgb(216, 154, 192);
+  width: 100%;
+  padding: 40px 0px;
+  font-family: var(--base-fm);
+  font-size: var(--base-size);
+  color: var(--white-clr);
+  display: flex; 
+  flex-flow: row wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery2-scn p {
+  max-width: 860px;
+  margin: 15px auto;
+}
+
+.gallery2-scn h2 {
+  font-size: var(--title-size);
+  color: white;
+  margin: 0px;
+}
+
+.gallery-list {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+  /* background-color: aqua; */
+}
+
+.gallery-list .gallery-item {
+  /* width: calc(33.33% - 10px); */
+  margin: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+.category-link{
+    width:25%;
+
+} 
+
+.gallery-list .gallery-item:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  background-image: url(https://coderwrap.com/wp-content/uploads/2023/04/search-icon.png);
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  background-size: 100% 100%;
+  transition: 0.5s all;
+  z-index: 1;
+  opacity: 0;
+}
+
+.gallery-list .gallery-item img {
+  display: block;
+  transition: 0.5s all;
+  width: 100%;
+  pointer-events: none;
+}
+
+.gallery-cont {
+  position: absolute;
+  bottom: -100%;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  transition: 0.5s all;
+  font-size: calc(var(--title-size) - 12px);
+}
+
+.gallery-list .gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-list .gallery-item:hover:before {
+  opacity: 1;
+}
+
+.gallery-list .gallery-item:hover .gallery-cont {
+  bottom: 0px;
+}
+
+/** Gallery Popup **/
+.gModel-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.gallerymodel {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.gallerymodelshow {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.gallerymodel .gallery-list {
+  margin: 0px;
+  width: 100%;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.gallerymodel .gallery-list .gallery-item {
+  width: 100%;
+  margin: 0px;
+  display: none;
+}
+
+.gallerymodel .gallery-list .gallery-item.active {
+  display: block;
+}
+
+.gallerymodel .gallery-list .gallery-item:before {
+  content: normal;
+}
+
+.gModel-close {
+  color: #fff;
+  z-index: 9999;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  font-weight: 300;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .gallerymodel .gallery-list {
+    width: calc(100% - 30px);
+  }
+
+  .gallery-cont {
+    font-size: calc(var(--title-size) - 25px);
+    bottom: 0;
+    padding: 10px;
+  }
+
+  .gallerymodel .gallery-cont {
+    font-size: calc(var(--title-size) - 15px);
+    padding: 15px 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery2-scn {
+    padding: 20px 0px;
+    font-size: calc(var(--base-size) - 4px);
+  }
+
+  .gallery2-scn h2 {
+    font-size: calc(var(--title-size) - 10px);
+  }
+
+  .gallery-list {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .gallery-list .gallery-item {
+    width: calc(50% - 10px);
+    margin: 5px;
+    border-radius: 4px;
+  }
+
+  .gallerymodel .gallery-list {
+    width: calc(100% - 10px);
+  }
+
+  .slideArrows {
+    width: calc(100% - 40px);
+  }
+
+  .gModel-close {
+    font-size: 24px;
+  }
+}
