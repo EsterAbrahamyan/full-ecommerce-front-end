@@ -1,42 +1,39 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Slider */
+.slider {
+  margin-top: 100px; /* Adjust this value to leave space below the fixed header */
+  /* Add your slider styles here */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Category images */
+.category-images {
+  margin-top: 20px;
+  /* Add your category images styles here */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: auto;
 }
 
-.card {
-  padding: 2em;
+.content-container {
+  margin-top: 100px; /* Adjust this value to leave space below the fixed header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.read-the-docs {
-  color: #888;
-} */

@@ -6,10 +6,11 @@
 
 body {
   margin: 0px;
+  
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -22,6 +23,7 @@ img {
   --subtitle: 50px;
   --base-clr: #ffffff;
   --secound-clr: #000000;
+  
 }
 
 .slider-group {

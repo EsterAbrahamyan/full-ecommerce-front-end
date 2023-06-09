@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { AppDispatch } from '../../app/store'
 import { fetchunderCategory, selectAllunderCategories } from '../../Slices/underCategorySlice'
 import {Link} from 'react-router-dom'
+// import './UnderCategoryId.css'
  
 const UnderCategoryId: React.FC = () =>{
   const data = useSelector(selectAllunderCategories)
@@ -15,22 +16,23 @@ const UnderCategoryId: React.FC = () =>{
     dispatch(fetchunderCategory())
   }, [])
   
-const undercategory = data.find((under) => under.category_id === Number(id));
-const names = undercategory?.Products.map((prod) =>prod.name) || [];
+const undercategory = data.find((under) => under.id === Number(id));
+const names = undercategory?.Products || [];
   //   return (
 
-  // console.log(names, "kkkkkkkkkkkkkkkkkkk")
+  console.log(names, "kkkkkkkkkkkkkkkkkkk")
+  console.log(undercategory,"hij")
 
   return(
     <div>
-      {names.map((prod, index)=>(
-        <Link to={`/${id}/product`} key={index}>
-          <div>{prod}</div>
-        </Link>
+      {names.map((products, index)=>(
+        <Link to={`/underCategory/${id}/product/${products.id}`} key={index}>
+        <div>{products.name}</div>
+        <img src={`${products?.image}`} alt={products.name} />
+      </Link>
       ))}
     </div>
     )
 }
 
 export default UnderCategoryId
-

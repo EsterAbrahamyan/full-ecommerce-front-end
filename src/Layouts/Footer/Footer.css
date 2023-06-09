@@ -1,8 +1,8 @@
 /* footer.css */
 
 footer.footer-area {
-  position:fixed;
-  bottom: 0;
+  /* position:relative; */
+  /* bottom: 0; */
   left: 0;
   width: 100%;
   background-color: #f07bb9;
@@ -10,9 +10,9 @@ footer.footer-area {
   z-index: 9999; 
 }
 
-body {
+/* body {
   margin-bottom: 150px; 
-}
+} */
 
 .footer-inner {
   display: flex;

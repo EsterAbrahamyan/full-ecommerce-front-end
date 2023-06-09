@@ -10,11 +10,13 @@ import ProductId from "./components/Products/ProductId"
 import Login from "./Pages/Login/Login"
 import RegisterPage from "./Pages/Register/Register"
 import './App.css'
+import Footer from "./Layouts/Footer/Footer"
 
 function AppRoutes(){
     return (
       <div className="App">
         <Header />
+        <div className="content-container"></div>
         <Routes>
                 <Route path='/login' element={<Login/>} />
                 <Route path='/register' element={<RegisterPage/>} />

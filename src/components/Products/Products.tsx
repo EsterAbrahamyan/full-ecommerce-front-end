@@ -6,7 +6,7 @@ import { fetchProducts, selectAllProducts } from '../../Slices/productSlice';
 import {Link} from 'react-router-dom'
 
 
-interface ProductPage {
+interface Product {
     id:number;
     name: string;
     price: number;
@@ -15,7 +15,7 @@ interface ProductPage {
     undercategory_id: number
 }
 
-const ProductPage: React.FC = () => {
+const Product: React.FC = () => {
   const products = useSelector(selectAllProducts);
   const dispatch: AppDispatch = useDispatch();
 
@@ -46,4 +46,4 @@ const ProductPage: React.FC = () => {
 
 
 
-export default ProductPage;
+export default Product;

@@ -26,15 +26,15 @@ const Header: React.FC = () => {
               <li className="dropdown">
                 <a href="#">Categories</a>
                 <ul>
-                  <li><a href="#">Services 1</a></li>
-                  <li><a href="#">Services 2</a></li>
-                  <li><a href="#">Services 3</a></li>
-                  <li><a href="#">Services 4</a></li>
-                  <li><a href="#">Services 5</a></li>
+                  <li><a href="#">Cookies</a></li>
+                  <li><a href="#">Cakes</a></li>
+                  <li><a href="#">Pastries</a></li>
+                  <li><a href="#">Capcakes</a></li>
+                  {/* <li><a href="#">Services 5</a></li> */}
                 </ul>
               </li>
-              <li className="dropdown">
-                <a href="#">Company</a>
+              {/* <li className="dropdown">
+                <a href="#">SubCategories</a>
                 <ul>
                   <li><a href="#">Company 1</a></li>
                   <li><a href="#">Company 2</a></li>
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
                   <li><a href="#">Company 4</a></li>
                   <li><a href="#">Company 5</a></li>
                 </ul>
-              </li>
+              </li> */}
               <li className="menu-btn"><a href="#">Contact us</a></li>
               <li><Link to="/register">Register</Link></li>
               <li><Link to="/login">Login</Link></li>
