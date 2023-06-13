@@ -10,7 +10,9 @@ import ProductId from "./components/Products/ProductId"
 import Login from "./Pages/Login/Login"
 import RegisterPage from "./Pages/Register/Register"
 import './App.css'
-import Footer from "./Layouts/Footer/Footer"
+// import Footer from "./Layouts/Footer/Footer"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function AppRoutes(){
     return (
@@ -21,12 +23,12 @@ function AppRoutes(){
                 <Route path='/login' element={<Login/>} />
                 <Route path='/register' element={<RegisterPage/>} />
                 <Route path='/' element={<Home/>} />
-                <Route path='undercategory/:id/product' element={<Product/>} />
+                <Route path='undercategory/:id/product/:id' element={<ProductId/>} />
                 <Route path='/category/:id' element={<CategoryId/>} />
                 <Route path='/undercategory/:id' element={<UnderCategoryId/>} />
                 <Route path='/product/:id' element={<ProductId/>} />
               </Routes>
-        {/* <Footer /> */}
+        
         </div>
         
     )

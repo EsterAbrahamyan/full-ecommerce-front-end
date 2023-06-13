@@ -1,3 +1,118 @@
+/**Typeo CSS if no need so remove it Start**/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* * {
+  box-sizing: border-box;
+} */
+/* 
+body {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  box-sizing: border-box;
+  margin: 0px;
+} */
+
+.cw-quantity-main {
+  max-width: 200px;
+  width: 100%;
+  margin: 4% auto;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.cw-quantity-item {
+  max-width: 33.3%;
+  padding: 3%;
+  width: 100%;
+}
+
+.cw-quantity-main h3 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.cw-quantity-group {
+  width: 120px;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: auto 0;
+ 
+}
+
+/* .cw-quantity-group {
+  width: 120px;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: -20px auto 0;
+} */
+
+
+
+.cw-quantity-group input {
+  background-color: transparent;
+  width: calc(100% - 60px);
+  text-align: center;
+  padding: 8px 5px 5px 5px;
+  height: 40px;
+  border: none;
+  border-top: #383636 1px solid;
+  border-bottom: #383636 1px solid;
+  font-size: 14px;
+  outline: none;
+  font-family: 'Poppins';
+  margin: auto;
+}
+
+.cw-plusmins {
+  width: 30px;
+  height: 40px;
+  line-height: 38px;
+  cursor: pointer;
+  font-size: 18px;
+  border: #383636 1px solid;
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.cw-quantity-5 .cw-plusmins {
+  background-color: #cccccc;
+}
+/**Typeo CSS if no need so remove it End**/
+
+.product-image-with-border {
+  border: 1px solid #000;
+  max-height: 400px; 
+  max-width: 100%; 
+  object-fit: contain; 
+}
+.description-container {
+  height: 200px; 
+}
+
+.description {
+  height: 100%;
+  overflow: auto;
+}
+.image-box {
+  margin-right: 20px;
+}
+.price {
+  font-size: 20px;
+  font-weight: bold; 
+}
+
+
+
 .loader {
     display: inline-block;
     position: relative;
@@ -31,4 +146,5 @@
       transform: rotate(1800deg);
     }
   }
+  
   

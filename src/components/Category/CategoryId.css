@@ -1,9 +1,4 @@
-body {
-    background-image: url("https://t4.ftcdn.net/jpg/03/17/21/27/360_F_317212789_QH4CjTqxRbHNA2RQICcKN5KICA38Zivq.jpg");
-    background-size: cover;
-    background-position: center;
-    /* filter:contrast(80%) */
-  }
+
   .undercategory-list {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +12,15 @@ body {
     background-color: #f07cc3;
     color: white;
     font-weight: bold;
+  }
+  #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f07bb9;
+    padding: 45px 0 0 0;
+    z-index: 9999; 
   }
   
   /* .undercategory-inner {

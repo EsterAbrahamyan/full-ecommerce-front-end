@@ -37,11 +37,7 @@ function Slider() {
             <img src={slide.imageSrc} alt={slide.altText} />
              <div className="slide-cont">
               <div className="slide-cont-inner">
-                {/* <h2>{slide.title}</h2>
-                <p>{slide.description}</p> */}
-                {/* <a href="#" className="cmn-btn">
-                  {slide.buttonText} */}
-                {/* </a> */}
+               
               </div>
             </div>
           </div>

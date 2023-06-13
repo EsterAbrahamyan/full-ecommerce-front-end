@@ -1,4 +1,10 @@
 /* Header */
+body {
+  background-image: url("https://t4.ftcdn.net/jpg/03/17/21/27/360_F_317212789_QH4CjTqxRbHNA2RQICcKN5KICA38Zivq.jpg");
+  background-size: cover;
+  background-position: center;
+  /* filter:contrast(80%) */
+}
 .header {
   position: fixed;
   top: 0;
@@ -30,6 +36,7 @@
   padding: 20px;
   margin-top: auto;
 }
+
 
 .content-container {
   margin-top: 100px; /* Adjust this value to leave space below the fixed header */

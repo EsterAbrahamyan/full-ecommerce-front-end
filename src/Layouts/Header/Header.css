@@ -1,16 +1,16 @@
 /**Typeo CSS Start**/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
-* {
+/* * {
 	box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
 	font-family: "Poppins", sans-serif;
 	color: #444;
 	box-sizing: border-box;
 	margin: 0px;
-}
+} */
 
 ul, li, a {
 	list-style: none;.header-scn {
