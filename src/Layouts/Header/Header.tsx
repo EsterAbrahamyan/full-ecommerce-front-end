@@ -1,8 +1,15 @@
 import React from "react";
 import "./Header.css"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../../Slices/headerSlice";
+
+
+
+
 
 const Header: React.FC = () => {
+  const cartCount = useSelector(selectCartCount);
   return (
     <header className="header-scn">
            <div className="container-fluid">
@@ -31,7 +38,7 @@ const Header: React.FC = () => {
             <div className="icons-group">
             
               <button className="icon cart">
-                <span className="countno">0</span>
+              <span className="countno">{cartCount}</span>
                 <img src="https://coderwrap.com/wp-content/uploads/2023/01/cart.svg" width="36" height="36" alt="Cart" />
               </button>
               <span id="mobiletoggle" className="mobile-toggle">

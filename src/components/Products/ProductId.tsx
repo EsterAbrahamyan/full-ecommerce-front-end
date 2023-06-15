@@ -6,21 +6,32 @@ import { AppDispatch } from "../../app/store";
 import './ProductId.css';
 import { Image, Container, Row, Col, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { incrementCartCount } from "../../Slices/headerSlice";
+
+// interface Product {
+//   id: number;
+//   name: string;
+//   price: number;
+//   description: string;
+//   image: string;
+//   undercategory_id: number;
+// }
 
 function Product() {
-  const { id } = useParams();
+  const {id} = useParams();
   const dispatch: AppDispatch = useDispatch();
   const products = useSelector(selectAllProducts);
 
+
+
   const [buttonColor, setButtonColor] = useState('grey');
+  const [selectedQuantity, setSelectedQuantity] = useState(0);
 
   const addToCart = () => {
-    // Add logic to handle adding the product to the cart
-    // ...
-
-    // Change the button color to success after clicking
+    dispatch(incrementCartCount(selectedQuantity));
     setButtonColor('success');
   };
+  
 
   useEffect(() => {
     dispatch(fetchProduct(Number(id)));
@@ -31,23 +42,14 @@ function Product() {
     return <div className="loader">Loading...</div>;
   }
 
-  const increaseQty = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    const qtyEl = event.currentTarget.previousElementSibling as HTMLInputElement;
-    let value = parseInt(qtyEl.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    qtyEl.value = value.toString();
+  const increaseQty = () => {
+    setSelectedQuantity(selectedQuantity + 1);
   };
-
-  const decreaseQty = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    const qtyEl = event.currentTarget.nextElementSibling as HTMLInputElement;
-    let value = parseInt(qtyEl.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value < 1 ? (value = 1) : "";
-    value--;
-    qtyEl.value = value.toString();
+  
+  const decreaseQty = () => {
+    setSelectedQuantity(selectedQuantity > 0 ? selectedQuantity - 1 : 0);
   };
-
+  
   return (
     <Container>
       <Row className="justify-content-center">
@@ -58,22 +60,21 @@ function Product() {
         </Col>
         <Col md={6}>
           <h3>{product?.name}</h3>
-          <p className="price">{product?.price} AMD/1psc</p> {/* Modified CSS class */}
+          <p className="price">{product?.price} AMD/1psc</p>
           <div className="description-container">
             <div className="description">
               <p>{product?.description}</p>
             </div>
           </div>
-          <div className="cw-quantity-group cw-quantity-5"> {/* Custom Quantity HTML */}
+          <div className="cw-quantity-group cw-quantity-5">
             <span className="cw-plusmins cw-mins" onClick={decreaseQty}>-</span>
-            <input type="text" value="0" name="" />
+            <input type="text" value={selectedQuantity} name="" readOnly />
             <span className="cw-plusmins cw-plus" onClick={increaseQty}>+</span>
           </div>
           <Button
             variant={buttonColor === 'grey' ? 'custom-pink' : buttonColor}
             onClick={addToCart}
             className={`mt-3 ${buttonColor === 'grey' ? 'initial-button-color' : ''}`}
-            style={{ border: `2px solid ${buttonColor === 'grey' ? 'grey' : ''}` }}
           >
             Add to Cart
           </Button>

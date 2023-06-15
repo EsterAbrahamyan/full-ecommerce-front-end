@@ -13,9 +13,10 @@ const headerSlice = createSlice({
   name: "header",
   initialState,
   reducers: {
-    incrementCartCount: (state) => {
-      state.cartCount++;
+    incrementCartCount: (state, action: PayloadAction<number>) => {
+      state.cartCount += action.payload;
     },
+    
     decrementCartCount: (state) => {
       if (state.cartCount > 0) {
         state.cartCount--;

@@ -28,6 +28,12 @@ export const fetchProducts = createAsyncThunk("product/fetchProducts", async () 
   return json as Product[];
 });
 
+// export const fetchProduct = createAsyncThunk("product/fetchProduct", async (id: number) => {
+//   const res = await fetch(`http://localhost:6005/product/${id}`);
+//   const json = await res.json();
+//   return json as Product;
+// });
+
 export const fetchProduct = createAsyncThunk("product/fetchProduct", async (id: number) => {
   const res = await fetch(`http://localhost:6005/product/${id}`);
   const json = await res.json();

@@ -8,21 +8,24 @@
   margin: 0px;
   
 } */
-
 .slider-group {
-  margin-top: 70px; /* Adjust this value based on your header height */
+  margin-top: 500px; 
+  position: relative;
+  z-index: 999;
 }
 
-.sliders {
-  position: relative;
-  /* Add other necessary styles for the slider */
-}
+
+/* .sliders {
+  
+ 
+} */
 
 /* Rest of the existing styles for the slider component */
 
 img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .slider-group *,
@@ -192,11 +195,18 @@ img {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 770px) {
   .arrows-controls .arr-left {
     left: 10px;
     width: 28px;
     height: 38px;
+    
+    
+  }
+  .slider-group {
+    margin-top: 200px; 
+    position: relative;
+    /* z-index: 999; */
   }
 
   .arrows-controls .arr-right {
