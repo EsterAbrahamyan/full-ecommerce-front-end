@@ -5,6 +5,7 @@ import categoryReducer from "../Slices/categorySlice"
 import undercategoryReducer from "../Slices/underCategorySlice"
 import headerReducer from "../Slices/headerSlice"
 import sliderReducer from "../Slices/sliderSlice"
+import cartReducer from "../Slices/CartItemsSlice"
 // import homepageReducer from "../Slices/homepageSlice"
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
         undercategory:undercategoryReducer,
         header: headerReducer,
         slider: sliderReducer,
+        cart: cartReducer
         // homepage: homepageReducer
 
     

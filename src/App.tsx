@@ -12,6 +12,9 @@ import RegisterPage from "./Pages/Register/Register"
 import './App.css'
 // import Footer from "./Layouts/Footer/Footer"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ShoppingCart from "./components/Cart/ShoppingCart"
+import UserPage from "./Pages/UserPage/UserPage"
+
 
 
 
@@ -28,6 +31,8 @@ function AppRoutes(){
                 <Route path='/category/:id' element={<CategoryId/>} />
                 <Route path='/undercategory/:id' element={<UnderCategoryId/>} />
                 <Route path='/product/:id' element={<ProductId/>} />
+                <Route path='/shoppingcart/:id' element={<ShoppingCart/>} />
+                <Route path="/user" element={<UserPage/>} />
               </Routes>
         
         </div>

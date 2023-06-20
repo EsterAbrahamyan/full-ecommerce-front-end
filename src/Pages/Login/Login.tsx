@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../Slices/usersSlice';
 import './Login.css'
 import { AppDispatch } from '../../app/store';
 import { Link } from 'react-router-dom';
-
+import { decodeToken } from 'react-jwt';
 
 interface User {
   email: string;
@@ -19,12 +19,20 @@ const Login: React.FC = () => {
 
   const dispatch: AppDispatch = useDispatch();
 
+  useEffect(() => {
+    const userFromLocalStorage = localStorage.getItem('user');
+    if (userFromLocalStorage) {
+      const decoded: any = decodeToken(JSON.parse(userFromLocalStorage)?.jwt);
+      setUser((prevUser) => ({ ...prevUser, email: decoded.email }));
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const loginResult = await dispatch(login(user));
 
     if (loginResult.payload) {
-      window.location.href = '/'; // Navigate to the home page after successful login
+      window.location.href = '/user'; // Navigate to the home page after successful login
     } else {
       window.location.href = '/register'; // Navigate to the register page if login fails
     }

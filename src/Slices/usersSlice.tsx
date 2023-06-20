@@ -47,7 +47,7 @@ export const login = createAsyncThunk('users/login', async (user: Users) => {
     }
   });
 
-export const register = createAsyncThunk('users/register', async(user: User)=>{
+export const register = createAsyncThunk('users/register', async({ user }: { user: User })=>{
     try{
         const res = await fetch("http://localhost:6005/users/register", {
             method: "POST",
@@ -75,11 +75,13 @@ const usersSlice = createSlice({
         .addCase(fetchUsers.fulfilled, (state, action)=>{
             state.status = "success";
             state.users = action.payload
-        }).addCase(login.fulfilled, (state, action)=>{
-            state.status = "succes"
+        })
+        .addCase(login.fulfilled, (state, action)=>{
+            state.status = "success"
             console.log(action)
-            localStorage.setItem('token', action.payload.jwt)
-        }).addCase(register.fulfilled, (state, action)=>{
+            localStorage.setItem("user", JSON.stringify(action.payload));
+          })
+          .addCase(register.fulfilled, (state, action)=>{
             state.status = "success"
             state.users.push(action.payload.user)
            console.log(action)

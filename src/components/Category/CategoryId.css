@@ -10,10 +10,10 @@
     padding: 10px;
     margin: 10px;
     background-color: #f07cc3;
-    color: white;
+    color: rgb(221, 188, 210);
     font-weight: bold;
   }
-  #footer {
+  /* #footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -21,7 +21,7 @@
     background-color: #f07bb9;
     padding: 45px 0 0 0;
     z-index: 9999; 
-  }
+  } */
   
   /* .undercategory-inner {
     border: 1px solid rgb(175, 6, 124);
