@@ -12,7 +12,7 @@ body {
 	margin: 0px;
 }
 
-.container {
+.register-container {
 	max-width: 1200px;
 	width: 100%;
 	padding: 0px 15px;
@@ -37,13 +37,13 @@ body {
 	text-align: center;
 }
 
-.form-group {
+.register-form-group {
 	width: 100%;
 	margin: 10px 0px;
 	display: inline-block;
 }
 
-.form-control {
+.register-form-control {
 	width: 100%;
 	padding: 12px 15px;
 	outline: none;
@@ -54,19 +54,19 @@ body {
 	transition: 0.5s all;
 }
 
-.form-control:focus {
+.register-form-control:focus {
 	border-color: #ec74b6;;
 }
 
-.form-control::-webkit-input-placeholder {
+.register-form-control::-webkit-input-placeholder {
 	color: #000;
 }
 
-.form-control:-ms-input-placeholder {
+.register-form-control:-ms-input-placeholder {
 	color: #000;
 }
 
-.form-control::placeholder {
+.register-form-control::placeholder {
 	color: #000;
 }
 
@@ -81,7 +81,7 @@ body {
 	text-decoration: none;
 }
 
-.cmn-btn {
+.register-cmn-btn {
 	padding: 10px 40px;
 	border: none;
 	outline: none;

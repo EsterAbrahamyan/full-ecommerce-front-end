@@ -3,7 +3,8 @@ body {
   background-image: url("https://t4.ftcdn.net/jpg/03/17/21/27/360_F_317212789_QH4CjTqxRbHNA2RQICcKN5KICA38Zivq.jpg");
   background-size: cover;
   background-position: center;
-  /* filter:contrast(80%) */
+  background-repeat: repeat;
+  
 }
 .header {
   position: fixed;

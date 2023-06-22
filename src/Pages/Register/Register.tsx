@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../Slices/usersSlice';
-import './Register.css'
+import './Register.css';
 import { AppDispatch } from '../../app/store';
-
-
+import Login from '../Login/Login';
 
 interface User {
   firstname: string;
@@ -15,17 +14,20 @@ interface User {
 
 const RegisterPage: React.FC = () => {
   const [user, setUser] = useState<User>({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: ""
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: ''
   });
+
+  const [registered, setRegistered] = useState(false);
 
   const dispatch: AppDispatch = useDispatch();
 
-  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(register(user));
+    await dispatch(register(user));
+    setRegistered(true);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,15 +35,19 @@ const RegisterPage: React.FC = () => {
     setUser(prevUser => ({ ...prevUser, [name]: value }));
   };
 
+  if (registered) {
+    return <Login />; 
+  }
+
   return (
-    <div className="container">
+    <div className="register-container">
       <div className="login-register">
         <form className="login-register-form" onSubmit={handleRegister}>
           <h4>Create account</h4>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="text"
-              className="form-control"
+              className="register-form-control"
               placeholder="First Name"
               name="firstname"
               value={user.firstname}
@@ -49,10 +55,10 @@ const RegisterPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="text"
-              className="form-control"
+              className="register-form-control"
               placeholder="Last Name"
               name="lastname"
               value={user.lastname}
@@ -60,10 +66,10 @@ const RegisterPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="email"
-              className="form-control"
+              className="register-form-control"
               placeholder="Email"
               name="email"
               value={user.email}
@@ -71,9 +77,9 @@ const RegisterPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
-              className="form-control"
+              className="register-form-control"
               type="password"
               placeholder="Password"
               name="password"
@@ -82,8 +88,8 @@ const RegisterPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <button className="cmn-btn" type="submit">
+          <div className="register-form-group">
+            <button className="register-cmn-btn" type="submit">
               Create
             </button>
           </div>
@@ -94,5 +100,3 @@ const RegisterPage: React.FC = () => {
 };
 
 export default RegisterPage;
-
-

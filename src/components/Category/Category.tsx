@@ -12,7 +12,7 @@ interface Category {
 }
 
 const Category: React.FC = () => {
-  const categories = useSelector(selectAllCategories);
+  const categories: Category[] = useSelector(selectAllCategories);
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {

@@ -47,7 +47,7 @@ export const login = createAsyncThunk('users/login', async (user: Users) => {
     }
   });
 
-export const register = createAsyncThunk('users/register', async({ user }: { user: User })=>{
+export const register = createAsyncThunk('users/register', async(user: Users)=>{
     try{
         const res = await fetch("http://localhost:6005/users/register", {
             method: "POST",
@@ -67,26 +67,26 @@ export const register = createAsyncThunk('users/register', async({ user }: { use
 })
 
 const usersSlice = createSlice({
-    name:"users",
-    initialState,
-    reducers: {},
-    extraReducers:(builder)=>{
-        builder
-        .addCase(fetchUsers.fulfilled, (state, action)=>{
-            state.status = "success";
-            state.users = action.payload
-        })
-        .addCase(login.fulfilled, (state, action)=>{
-            state.status = "success"
-            console.log(action)
-            localStorage.setItem("user", JSON.stringify(action.payload));
-          })
-          .addCase(register.fulfilled, (state, action)=>{
-            state.status = "success"
-            state.users.push(action.payload.user)
-           console.log(action)
-        })
-    }
-})
+  name: "users",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.status = "success";
+        state.users = action.payload;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.status = "success";
+        console.log(action);
+        localStorage.setItem("user", JSON.stringify(action.payload));
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.status = "success";
+        state.users.push(action.payload.user);
+        console.log(action);
+      });
+  },
+});
 
-export default usersSlice.reducer
+export default usersSlice.reducer as typeof usersSlice.reducer;

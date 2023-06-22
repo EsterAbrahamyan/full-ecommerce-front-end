@@ -14,6 +14,8 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ShoppingCart from "./components/Cart/ShoppingCart"
 import UserPage from "./Pages/UserPage/UserPage"
+import AboutUs from "./Pages/AboutUs/AboutUs"
+import ContactUsPage from "./Pages/ContactUs/ContactUs"
 
 
 
@@ -27,6 +29,8 @@ function AppRoutes(){
                 <Route path='/login' element={<Login/>} />
                 <Route path='/register' element={<RegisterPage/>} />
                 <Route path='/' element={<Home/>} />
+                <Route path='/about' element={<AboutUs/>} />
+                <Route path='/Contact Us' element={<ContactUsPage/>}/>
                 <Route path='undercategory/:id/product/:id' element={<ProductId/>} />
                 <Route path='/category/:id' element={<CategoryId/>} />
                 <Route path='/undercategory/:id' element={<UnderCategoryId/>} />

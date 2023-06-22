@@ -73,13 +73,11 @@ const Header: React.FC = () => {
 
         
           <Link to={`/shoppingcart/${decoded.id}`} className="icon cart">
+  <span className="countno">{cartCount}</span>
+  <img src="https://coderwrap.com/wp-content/uploads/2023/01/cart.svg" width="36" height="36" alt="Cart" />
+</Link>
 
-          {/* <Link to={`/shoppingcart`} className="icon cart">  */}
-            <span className="countno">{cartCount}</span>
-            <img src="https://coderwrap.com/wp-content/uploads/2023/01/cart.svg" width="36" height="36" alt="Cart" />
-          </Link>
             
-              {/* </button> */}
               <span id="mobiletoggle" className="mobile-toggle"
               onClick={handleToggleMenu}>
                 <i></i>

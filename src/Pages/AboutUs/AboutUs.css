@@ -1,0 +1,96 @@
+/* AboutOpt1.css */
+.aboutOpt1,
+.aboutOpt1 * {
+  --page-width: 30%;
+  --base-fm: 'Rubik', sans-serif;
+  --title-size: 35px;
+  --base-size: 18px;
+  --black-clr: #000000;
+  --white-clr: #ffffff;
+  --bg-clr: #fffbf8;
+  --theme-clr: #ff6200;
+}
+
+.page-width {
+  max-width: var(--page-width);
+  padding: 0 15px;
+  margin: auto;
+  width: 100%;
+}
+
+.about-opt1 {
+  width: 100%;
+  font-size: var(--base-size);
+  color: var(--black-clr);
+  font-family: var(--base-fm);
+  padding: 20px 0px;
+  background-color: var(--bg-clr);
+}
+
+.about-opt1-inner {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  align-items: center;
+}
+
+.about-opt1-inner .about-opt1-left {
+  width: 60%; /* Changed from 50% to 70% */
+}
+
+.about-opt1-inner .about-opt1-right {
+  width: 30%; /* Changed from 70% to 30% */
+  padding: 1px 1px;
+}
+
+.about-opt1-inner h2 {
+  font-size: var(--title-size);
+  font-weight: normal;
+  margin: 50px 50px 10px 0px;
+}
+
+.about-opt1-inner p {
+  line-height: 1.5;
+  margin: 20px 0 50px 0;
+}
+
+.about-opt1-inner img {
+  
+  width: 80%;
+}
+.bold {
+    font-weight: bold;
+  }
+  
+  .italic {
+    font-style: italic;
+  }
+  
+  .bold-italic {
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+
+
+
+@media (max-width: 767px) {
+  .about-opt1-inner .about-opt1-left,
+  .about-opt1-inner .about-opt1-right {
+    width: 100%;
+  }
+
+  .about-opt1-inner .about-opt1-right {
+    padding: 20px 0 0 0px;
+  }
+
+  .o1-cmn-btn {
+    padding: 10px 20px;
+  }
+
+  .about-opt1-inner h2 {
+    font-size: calc(var(--title-size) - 10px);
+    margin-bottom: 10px;
+  }
+
+}

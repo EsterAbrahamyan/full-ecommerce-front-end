@@ -32,9 +32,9 @@ const Login: React.FC = () => {
     const loginResult = await dispatch(login(user));
 
     if (loginResult.payload) {
-      window.location.href = '/user'; // Navigate to the home page after successful login
+      window.location.href = '/user'; 
     } else {
-      window.location.href = '/register'; // Navigate to the register page if login fails
+      window.location.href = '/register'; 
     }
   };
 
@@ -44,14 +44,14 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="login-register">
         <form className="login-register-form" onSubmit={handleSubmit}>
           <h4>Log In</h4>
-          <div className="form-group">
+          <div className="login-form-group">
             <input
               type="email"
-              className="form-control"
+              className="login-form-control"
               placeholder="Email"
               name="email"
               value={user.email}
@@ -59,9 +59,9 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="login-form-group">
             <input
-              className="form-control"
+              className="login-form-control"
               type="password"
               placeholder="Password"
               name="password"
@@ -70,15 +70,15 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="login-form-group">
             <a href="#">Forgot your password?</a>
           </div>
-          <div className="form-group">
-            <button className="cmn-btn" type="submit">
+          <div className="login-form-group">
+            <button className="login-cmn-btn" type="submit">
               Sign In
             </button>
           </div>
-          <div className="form-group">
+          <div className="login-form-group">
             <Link to="/register">Create account</Link>
           </div>
         </form>
